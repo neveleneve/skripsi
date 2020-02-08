@@ -8,7 +8,6 @@ if ($_SESSION['userrole'] == "") {
 		}
 	}
 	$_SESSION['userrole'] = 'guest';
-	$_SESSION['namauser'] = '';
 } else {
 	$nama = $_SESSION['namauser'];
 }
