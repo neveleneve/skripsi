@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<script src="bootstrap/dist/js/jquery.js"></script>
+<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+<link href="bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<table class="table table-condensed" style="border-collapse:collapse;">
+    <tbody>
+        <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
+            <td><span class="glyphicon glyphicon-triangle-top"></span> Run id</td>
+            <td>Start</td>
+            <td>End</td>
+        </tr>
+        <tr>
+            <td colspan="12" class="hiddenRow">
+                <div class="collapse" id="demo1">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Event type</th>
+                                <th>Event id</th>
+                                <th>Event Time </th>
+                                <th>Bizstep</th>
+                                <th>Biz location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-toggle="collapse" data-target="#read">
+                                <td><span class="glyphicon glyphicon-plus"></span> Read event</td>
+                                <td>1233xxx1231</td>
+                                <td>10:45AM 4<sup>th</sup> Dec 2015</td>
+                                <td>store</td>
+                                <td>process</td>
+                            </tr>
+                            <tr>
+                                <td colspan="6">
+                                    <div id="read" class="collapse">
+                                        <p>Company Name : Infratab bangalore Pvt Ltd</p>
+                                        <p>Read point : office phone</p>
+                                        <p>Biz location Id : 23344xxx6575</p>
+                                        <p>Other Id : xxxx34334xxxxx</p>
+                                        <p>Event data generated : Yes</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </td>
+        </tr>
+        <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
+            <td><span class="glyphicon glyphicon-triangle-top"></span> Run id </td>
+            <td>Start</td>
+            <td>End</td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">
+                <div id="demo2" class="accordian-body collapse">Demo2</div>
+            </td>
+        </tr>
+        <tr data-toggle="collapse" data-target="#demo3" class="accordion-toggle">
+            <td><span class="glyphicon glyphicon-triangle-top"></span> Run id</td>
+            <td>Start</td>
+            <td>End</td>
+        </tr>
+        <tr>
+            <td colspan="6" class="hiddenRow">
+                <div id="demo3" class="accordian-body collapse">Demo3</div>
+            </td>
+        </tr>
+    </tbody>
+</table>

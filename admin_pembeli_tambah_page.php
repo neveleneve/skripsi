@@ -1,0 +1,59 @@
+<?php
+session_start();
+if ($_SESSION['userrole'] == "admin") {
+    $nama = $_SESSION['namauser'];
+} else {
+    header("location: index.php");
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tambah Pembeli</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="bootstrap/dist/js/jquery.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <?php
+    include 'navbar.php';
+    require 'config.php';
+    ?>
+    <br>
+    <br>
+
+    <div class="col-md-8 col-md-offset-2 main">
+        <h1 class="page-header">Tambah Pembeli</h1>
+        <form action="admin_pembeli_tambah.php" method="post">
+            <div class="form-group">
+                <label>Nama Pembeli</label>
+                <input type="text"  name="nama" class="form-control" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label> Alamat </label>
+                <input type="text"  name="alamat" class="form-control" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label>Nomor Handphone </label>
+                <input type="text"  name="nohp" class="form-control" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" class="form-control" placeholder="" required>
+            </div>
+            <div class="form-group">
+                <label>Saldo</label>
+                <span>
+                    <input name="saldo" class="form-control" type="number" min="0">
+                </span>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Tambah">
+        </form>
+    </div>
+</body>
+</html>
