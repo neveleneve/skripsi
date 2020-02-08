@@ -17,7 +17,9 @@ $tot = 0;
 while ($data = mysqli_fetch_assoc($checkquery)) {
     $jumlah = $_POST[$data['id_brg']];
     $idbrg = $data['id_brg'];
-    if ($jumlah == 0) { } else {
+    if ($jumlah == 0) { 
+        
+    } else {
         $harga = $data['harga'];
         $subtot = $harga * $jumlah;
         $addquery = mysqli_query($koneksi, "INSERT INTO tb_trans (id_transaksi, id, no_stand, id_brg, jumlah_brg, sub_total, status) values ($number, $idpemb, '$idpenj', $idbrg, $jumlah, $subtot, 0)");
