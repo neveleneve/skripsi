@@ -1,71 +1,105 @@
-<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-<script src="bootstrap/dist/js/jquery.js"></script>
-<script src="bootstrap/dist/js/bootstrap.min.js"></script>
-<link href="bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<table class="table table-condensed" style="border-collapse:collapse;">
-    <tbody>
-        <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
-            <td><span class="glyphicon glyphicon-triangle-top"></span> Run id</td>
-            <td>Start</td>
-            <td>End</td>
-        </tr>
-        <tr>
-            <td colspan="12" class="hiddenRow">
-                <div class="collapse" id="demo1">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Event type</th>
-                                <th>Event id</th>
-                                <th>Event Time </th>
-                                <th>Bizstep</th>
-                                <th>Biz location</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-toggle="collapse" data-target="#read">
-                                <td><span class="glyphicon glyphicon-plus"></span> Read event</td>
-                                <td>1233xxx1231</td>
-                                <td>10:45AM 4<sup>th</sup> Dec 2015</td>
-                                <td>store</td>
-                                <td>process</td>
-                            </tr>
-                            <tr>
-                                <td colspan="6">
-                                    <div id="read" class="collapse">
-                                        <p>Company Name : Infratab bangalore Pvt Ltd</p>
-                                        <p>Read point : office phone</p>
-                                        <p>Biz location Id : 23344xxx6575</p>
-                                        <p>Other Id : xxxx34334xxxxx</p>
-                                        <p>Event data generated : Yes</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+<!DOCTYPE html>
+<html>
 
-                </div>
-            </td>
-        </tr>
-        <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
-            <td><span class="glyphicon glyphicon-triangle-top"></span> Run id </td>
-            <td>Start</td>
-            <td>End</td>
-        </tr>
-        <tr>
-            <td colspan="6" class="hiddenRow">
-                <div id="demo2" class="accordian-body collapse">Demo2</div>
-            </td>
-        </tr>
-        <tr data-toggle="collapse" data-target="#demo3" class="accordion-toggle">
-            <td><span class="glyphicon glyphicon-triangle-top"></span> Run id</td>
-            <td>Start</td>
-            <td>End</td>
-        </tr>
-        <tr>
-            <td colspan="6" class="hiddenRow">
-                <div id="demo3" class="accordian-body collapse">Demo3</div>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="bootstrap/dist/js/jquery.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <style>
+        .sideba {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 3000;
+        }
+
+        .sideba a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sideba a:hover {
+            color: #f1f1f1;
+        }
+
+        .sideba .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        };
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sideba {
+                padding-top: 15px;
+            }
+
+            .sideba a {
+                font-size: 0px;
+            }
+        }
+    </style>
+</head>
+
+<body onloadstart="pointa()">
+
+    <div id="mySidebar" class="sideba">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div id="main" class="container-fluid">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li onclick="openNav()"><a class="navbar-brand fa fa-list"></a></li>
+                    <li> <a class="navbar-brand" href=""> Pasar Mahasiswa</a></li>
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- <div id="main">
+        <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
+        <h2>Collapsed Sidebar</h2>
+        <p>Click on the hamburger menu/bar icon to open the sidebar, and push this content to the right.</p>
+    </div> -->
+
+    <script>
+        
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+
+        }
+    </script>
+
+</body>
+
+</html>
