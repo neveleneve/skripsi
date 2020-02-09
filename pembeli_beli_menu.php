@@ -5,18 +5,18 @@ include "config.php";
 $iduserq = mysqli_query($koneksi, "SELECT id FROM tb_pembeli where username='$idkry'");
 $idpembeli = mysqli_fetch_assoc($iduserq);
 $idpemb = $idpembeli['id'];
-$idpenj = $_GET['idpenj'];
 
 $maxquery = mysqli_query($koneksi, "SELECT max(id_transaksi) as maxid FROM tb_trans");
 $exemax = mysqli_fetch_assoc($maxquery);
 
 $number = $exemax['maxid'] + 1;
 
-$checkquery = mysqli_query($koneksi, "SELECT * FROM tb_brg where no_stand='$idpenj' and status=1");
+$checkquery = mysqli_query($koneksi, "SELECT * FROM tb_brg where status=1");
 $tot = 0;
 while ($data = mysqli_fetch_assoc($checkquery)) {
     $jumlah = $_POST[$data['id_brg']];
     $idbrg = $data['id_brg'];
+    $idpenj = $data['no_stand'];
     if ($jumlah == 0) { 
         
     } else {

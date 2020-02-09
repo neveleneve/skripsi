@@ -43,66 +43,79 @@ if ($_SESSION['userrole'] == "pembeli") {
             }
             ?>
             <br>
-            <table class="table table-bordered table-striped table-hover">
-                <thead class="bg-danger">
-                    <tr>
-                        <th></th>
-                        <th class="text-center">NOMOR </th>
-                        <th class="text-center">NOMOR STAND</th>
-                        <th class="text-center">NAMA STAND</th>
-                    </tr>
-                </thead>
-                <?php
-                $querykaryawan = mysqli_query($koneksi, "SELECT * FROM tb_penjual group by no_stand order by no_stand asc");
-                ?>
-                <tbody class="bg-info">
-                    <?php
-                    $no = 1;
-                    while ($lihat = mysqli_fetch_array($querykaryawan)) {
-                        $nostand = $lihat['no_stand'];
-                    ?>
+            <form action="" method="post">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead class="bg-danger">
                         <tr>
-                            <td class="text-center"><a class="btn btn-primary fa fa-plus fa-border" data-toggle="collapse" data-target="#read<?php echo $lihat['no_stand'] ?>"></a></td>
-                            <td class="text-center"><?php echo $no++; ?></td>
-                            <td class="text-center"><?php echo $lihat['no_stand']; ?></td>
-                            <td class="text-center"><?php echo $lihat['nama_stand']; ?></td>                            
+                            <th></th>
+                            <th class="text-center">NOMOR </th>
+                            <th class="text-center">NOMOR STAND</th>
+                            <th class="text-center">NAMA STAND</th>
                         </tr>
+                    </thead>
+                    <?php
+                    $querykaryawan = mysqli_query($koneksi, "SELECT * FROM tb_penjual group by no_stand order by no_stand asc");
+                    ?>
+                    <tbody class="bg-info">
                         <tr>
                             <td colspan="4">
-                                <div id="read<?php echo $lihat['no_stand'] ?>" class="collapse">
-                                    <table class="table table-bordered table-striped table-hover">
-                                        <thead class="bg-danger">
-                                            <th class="text-center">NOMOR</th>
-                                            <th class="text-center">NAMA BARANG</th>
-                                            <th class="text-center">HARGA</th>
-                                            <th class="text-center">JUMLAH BELI</th>
-                                        </thead>
-                                        <tbody>
-                                        <?php
-                                            $nox = 1;
-                                            $qbrg = mysqli_query($koneksi, "select * from tb_brg where no_stand=$nostand and status = 1");
-                                            while ($show = mysqli_fetch_array($qbrg)) { ?>
-                                                <tr>
-                                                    <td class="text-center"><?php echo $nox++ ?></td>
-                                                    <td class="text-center"><?php echo $show['nama_brg'] ?></td>
-                                                    <td class="text-center"><?php echo 'Rp. ' . str_replace(',', '.', number_format($show['harga'])) . ',00' ?></td>
-                                                    <td class="text-center">
-                                                        <input class="form-control" type="number" name="input<?php echo $show['id_brg'] ?>" id="input<?php echo $show['id_brg'] ?>" min="0">
-                                                    </td>
-                                                </tr>
-                                            <?php }
-                                            ?>
-                                        </tbody>
-                                    </table>
-                                </div>
                             </td>
                         </tr>
-                    <?php
-                    }
-                    ?>
-                </tbody>
-            </table>
-
+                        <?php
+                        $no = 1;
+                        while ($lihat = mysqli_fetch_array($querykaryawan)) {
+                            $nostand = $lihat['no_stand'];
+                        ?>
+                            <tr>
+                                <td class="text-center"><a class="btn btn-primary fa fa-plus fa-border" data-toggle="collapse" data-target="#read<?php echo $lihat['no_stand'] ?>"></a></td>
+                                <td class="text-center"><?php echo $no++; ?></td>
+                                <td class="text-center"><?php echo $lihat['no_stand']; ?></td>
+                                <td class="text-center"><?php echo $lihat['nama_stand']; ?></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <div id="read<?php echo $lihat['no_stand'] ?>" class="collapse">
+                                        <table class="table table-bordered table-striped table-hover">
+                                            <thead class="bg-danger">
+                                                <th class="text-center">NOMOR</th>
+                                                <th class="text-center">NAMA BARANG</th>
+                                                <th class="text-center">HARGA</th>
+                                                <th class="text-center">JUMLAH BELI</th>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $nox = 1;
+                                                $qbrg = mysqli_query($koneksi, "select * from tb_brg where no_stand='$nostand' and status = 1");
+                                                while ($show = mysqli_fetch_array($qbrg)) { ?>
+                                                    <tr>
+                                                        <td class="text-center"><?php echo $nox++ ?></td>
+                                                        <td class="text-center"><?php echo $show['nama_brg'] ?></td>
+                                                        <td class="text-center"><?php echo 'Rp. ' . str_replace(',', '.', number_format($show['harga'])) . ',00' ?></td>
+                                                        <td class="text-center">
+                                                            <input class="form-control" type="number" name="<?php echo $show['id_brg'] ?>" id="<?php echo $show['id_brg'] ?>" min="0">
+                                                        </td>
+                                                    </tr>
+                                                <?php }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                    <tfoot class="bg-danger">
+                        <tr>
+                            <th></th>
+                            <th class="text-center">NOMOR </th>
+                            <th class="text-center">NOMOR STAND</th>
+                            <th class="text-center">NAMA STAND</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </form>
         </div>
     </div>
 
