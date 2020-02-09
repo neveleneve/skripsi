@@ -34,7 +34,6 @@ if ($_SESSION['userrole'] == "pembeli") {
         <h1 class="page-header">Transaksi</h1>
         <div class="col-md-12">
             <h3>Tabel transaksi </h3>
-            <br>
             <table class="table table-bordered table-striped table-hover">
                 <thead class="bg-danger">
                     <tr>
@@ -53,6 +52,11 @@ if ($_SESSION['userrole'] == "pembeli") {
                 $querykaryawan = mysqli_query($koneksi, "SELECT id_transaksi, no_stand, sum(jumlah_brg) as jumlah_brg, sum(sub_total) as sub_total, status FROM tb_trans where id ='$id' group by id_transaksi");
                 ?>
                 <tbody class="bg-info">
+                    <tr>
+                        <td colspan="6">
+
+                        </td>
+                    </tr>
                     <?php
                     while ($lihat = mysqli_fetch_array($querykaryawan)) {
                         $idtrans = $lihat['id_transaksi'];
@@ -72,7 +76,7 @@ if ($_SESSION['userrole'] == "pembeli") {
                             <td colspan="6">
                                 <div id="read<?php echo $lihat['id_transaksi']; ?>" class="collapse">
                                     <table class="table table-bordered table-striped table-hover">
-                                        <thead>
+                                        <thead class="bg-danger">
                                             <th class="text-center">Nomor</th>
                                             <th class="text-center">Pesanan</th>
                                             <th class="text-center">Harga Satuan</th>

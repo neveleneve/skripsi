@@ -71,8 +71,8 @@ $current_page = PageName();
                 } else {
                     ?>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <?php echo $nama ?> <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Masuk Sebagai : <?php echo $nama ?> <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style="width: 100%">
                             <li><a href="#">Edit Profil</a></li>
                             <li><a href="logout.php">Log Out</a></li>
                         </ul>

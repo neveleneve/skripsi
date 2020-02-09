@@ -43,7 +43,7 @@ if ($_SESSION['userrole'] == "pembeli") {
             }
             ?>
             <br>
-            <form action="" method="post">
+            <form action="pembeli_beli_menu.php" method="post">
                 <table class="table table-bordered table-striped table-hover">
                     <thead class="bg-danger">
                         <tr>
@@ -115,10 +115,14 @@ if ($_SESSION['userrole'] == "pembeli") {
                         </tr>
                     </tfoot>
                 </table>
+                <div class="col-md-4 col-md-offset-8">
+                    <input type="submit" class="btn btn-primary btn-block" value="Pesan Sekarang">
+                    <br>
+                    <br>
+                </div>
             </form>
         </div>
     </div>
-
 </body>
 
 </html>
