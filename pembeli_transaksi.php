@@ -69,7 +69,7 @@ if ($_SESSION['userrole'] == "pembeli") {
                             <td class="text-right"><?php echo 'Rp. ' . str_replace(',', '.', number_format($lihat['sub_total'])) . ',00' ?></td>
                             <td class="text-center">
                                 <!-- <a href="pembeli_beli.php" " data-toggle="tooltip" title="<?php echo $lihat['status'] == 1 ? 'Sudah Dibayar!' : 'Belum Dibayar! Klik Untuk Bayar.' ?>" <?php echo $lihat['status'] == 1 ? 'disabled' : '' ?>></a> -->
-                                <a href="#" class="no-collapsable btn btn-<?php echo $lihat['status'] == 1 ? 'success' : 'danger' ?> fa fa-<?php echo $lihat['status'] == 1 ? 'check' : 'remove' ?> fa-border" data-toggle="tooltip" title="<?php echo $lihat['status'] == 1 ? 'Sudah Dibayar!' : 'Belum Dibayar! Klik Untuk Bayar.' ?>" <?php echo $lihat['status'] == 1 ? 'disabled' : '' ?>>
+                                <a href="pembeli_transaksi_bayar.php?idtrans=<?php echo $lihat['id_transaksi'] ?>" class="no-collapsable btn btn-<?php echo $lihat['status'] == 1 ? 'success' : 'danger' ?> fa fa-<?php echo $lihat['status'] == 1 ? 'check' : 'remove' ?> fa-border" data-toggle="tooltip" title="<?php echo $lihat['status'] == 1 ? 'Sudah Dibayar!' : 'Belum Dibayar! Klik Untuk Bayar.' ?>" <?php echo $lihat['status'] == 1 ? 'disabled' : '' ?>>
                             </td>
                         </tr>
                         <tr>
