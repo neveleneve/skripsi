@@ -1,9 +1,10 @@
 <?php
 require 'config.php';
+
 session_start();
 $nama = $_SESSION['namauser'];
 $idtrans = $_GET['idtrans'];
-// echo $idtrans;
+
 $qubah = "update tb_trans set status=1 where id_transaksi=$idtrans";
 $exeubah = mysqli_query($koneksi, $qubah);
 
